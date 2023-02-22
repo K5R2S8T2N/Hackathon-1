@@ -5,14 +5,162 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <!-- get rid of weird error from playing music -->
+    <link rel="shortcut icon" href="#">
     <title>Connect 4</title>
 </head>
 <body>
-    <h1 id="connect4Title"> Connect 4 </h1>
-    <div id="gamePage"> 
-        <div id="mainBoard"></div>
+    <!-- start page -->
+    <div id="startPage">
+        <!-- top image  -->
+        <img src="https://shuffle.cards/assets/images/licenses/connect4/header_logo.png" alt="connect 4 game" id="startPageImage">
+        <!-- game customisation buttons  -->
+        <div id="gameCustomisationButtons">
+            <!-- type of game button -->
+            <div id="typeOfGameDiv">
+                <h2 id="TypeOfGameTitle"> Type of Game</h2>
+                <span class="typeOfGame">
+                    <input type="checkbox" id="switcher">
+                    <label for="switcher"></label>
+                </span>
+            </div>
+            <!-- single player -->
+            <div id="nameForSinglePlayer" style="display:none">
+                <form>
+                    <label id="inputForFirstPlayersName"  for="name1">Player Name</label>
+                    <input name="name1" type="text" id="inputForSinglePlayerName">
+        
+                </form>
+            </div>
+
+            <!-- multiplayer -->
+            <div id="nameForMultiPlayer">
+                <form>
+                    <label id="inputForSecondPlayersNameOne"  for="name2">Player 1 Name</label>
+                    <input type="text" name="name2" id="inputForMultiPlayerNameOne">
+        
+                </form>
+                <form>
+                    <label id="inputForSecondPlayersNameTwo"  for="name3">Player 2 Name</label>
+                    <input type="text" name="name3" id="inputForMultiPlayerNameTwo">
+        
+                </form>
+            </div>
+
+            <div id="definingNoRowsNColumns">
+                <!-- number of columns  -->
+                <form id="numberColumnsForm">
+                    <label for="numberColumns" id="numberColumnsLabel">Number of Columns</label>
+                    <select name="numberColumns" id="numberColumnsDropdown">
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </form>
+
+                <!-- number of rows  -->
+                <form id="numberRowsForm">
+                    <label for="numberRows" id="numberRowsLabel">Number of Rows</label>
+                    <select name="numberRows" id="numberRowsDropdown">
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                    </select>
+                </form>
+            </div>
+            
+        </div>
+
+        <!-- play button -->
+        <button id="playGameButton"> play </button>
     </div>
+
+    <!-- game page  -->
+    <div id="mainGamePage" style="display:none">
+        <div id="topScreenButtons">
+            <div id="resetNBack">
+                <button id="backToMainPageButton"> back</button>
+                <button id="resetGameButton"> reset game</button>
+            </div>
+            
+            <div id="titleNLines">
+                <hr class="titleLines">
+                <div id="connect4Title">Connect 4</div>
+                <hr class="titleLines">
+            </div>
     
+            <div id="soundNinstructions"> 
+                <p id="instructions"> How to play </p>
+                <div id="soundButtons">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Speaker_Icon.svg" alt="play" id="playSoundButton" style="display:none">
+                    <img src="https://img.icons8.com/material/480/no-audio--v1.png" alt="mute" id="stopSoundButton" style="display:none">
+                </div>
+            </div>
+        </div>
+        <div id="topBarDivs">
+            <div id="divForArrow"> </div>
+        </div>
+        <div id="gamePage"> 
+            <div id="mainBoard"></div>
+        </div>
+
+        <!-- game rules page  -->
+        <div id="gameRules" display="none">
+            <h1 class="gameRulesTitle">Objective:</h1>
+            <p>To be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)</p>
+            <h1 class="gameRulesTitle"> How to play: </h1>
+            <ul id="gameRulesText">
+                <li>Players must alternate turns, and only one disc can be dropped in each turn.</li>
+                <li>On your turn, drop one of your colored discs from the top into any of the seven slots.</li>
+                <li>The game ends when there is a 4-in-a-row or a stalemate.</li>
+                <li>Players can be on the offensive or defensive.</li>
+                <li>Players can either play offensively or defensively on the rack – it's really up to you how you play. That means you can either focus simply on achieving a 4-in-a-row of your colored discs, or you can rather focus on blocking your opponent from achieving any connect 4s.</li>
+                <li>I have personally found that a combination of offensive and defensive play is most effective. When I focus on merely blocking my opponent, I lose out on the satisfaction of creating my own 4-in-a-row. And when I complete neglect blocking my opponent by only focusing on creating my 4-in-a-row, they can surprise me with an unexpected win.</li> 
+                <li>The game ends when there is a 4-in-a-row or a stalemate.</li>
+                <li>You might wonder what it takes to win. When is the game over? Do you keep trying to get 4 in a row after a player has already achieved it? The game is considered “over” when one of the players manages to get 4 of their own colored discs in a row diagonally, horizontally, or vertically.</li>
+                <li>But that is not the only time the game is over. What if neither of the players is able to achieve a 4-in-a-row? Once most of the slots are filled and it’s impossible for any player to get 4-in-a-row, the game is considered over because of a stalemate. Unfortunately, there is no winner in this instance, and re-match can be played.</li>
+            </ul>
+            <h1>Players can be on the offensive or defensive.</h1>
+
+        </div>
+        
+
+        
+
+
+        <!-- winner page -->
+        <div id="winnerPage" style="display: none;"></div>
+        <!-- score page -->
+        <div id="scorePage" style="display: none;"> 
+            <div id="displayedScores">
+                <h1 id="player1Score"> </h1>
+                <h1 id="player2Score"> </h1>
+            </div>
+            <div id="optionButtons">
+                <button id="optionPlayAgain"> Play again </button>
+                <button id="optionBackToMainPage"> back to main page </button>
+            </div>
+            
+        </div>
+    </div>
+
+
+    
+    
+    <audio id="backgroundMusic" src="playing-in-color-120336.mp3" preload="auto" loop="true"> 
+    <audio id="placeTokenEffect" src="interface-124464.mp3" preload="auto"> 
+    <audio id="columnFullEffect" src="error-126627.mp3" preload="auto"> 
+    <audio id="fourInARow" src="success-1-6297.mp3" preload="auto">   
+    <audio id="computerWins" src="videogame-death-sound-43894.mp3" preload="auto">   
+    <audio id="drawSound" src="decidemp3-14575.mp3" preload="auto"> 
+    <audio id="selectItem" src="button-124476.mp3" preload="auto">   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

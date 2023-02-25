@@ -113,9 +113,9 @@
         <!-- game rules page  -->
         <div id="gameRules" display="none">
             <h1 class="gameRulesTitle">Objective:</h1>
-            <p>To be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)</p>
+            <p class="gameRulesText">To be the first player to connect 4 of the same colored discs in a row (either vertically, horizontally, or diagonally)</p>
             <h1 class="gameRulesTitle"> How to play: </h1>
-            <ul id="gameRulesText">
+            <ul class="gameRulesText">
                 <li>Players must alternate turns, and only one disc can be dropped in each turn.</li>
                 <li>On your turn, drop one of your colored discs into any of the columns.</li>
                 <li>You have to wait until your oponent finishes their turn before you can begin your own.</li>
@@ -125,7 +125,7 @@
                 </li>
                 <li>Customise the board game size, names of players and type of game (sinlge or multiplayer) on the front page.</li>
             </ul>
-            <h1>Rememeber: players can be on the offensive or defensive</h1>
+            <h1 class="gameRulesTitle">Rememeber: players can be on the offensive or defensive</h1>
 
         </div>
         
@@ -134,7 +134,10 @@
 
 
         <!-- winner page -->
-        <div id="winnerPage" style="display: none;"></div>
+        <div id="winnerPage" style="display: none;" class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
+        </div>
         <!-- score page -->
         <div id="scorePage" style="display: none;"> 
             <div id="displayedScores">

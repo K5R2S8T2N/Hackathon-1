@@ -28,7 +28,10 @@ typeOfGame.addEventListener("click", () => {
 
 // play game button 
 const playGameButton = document.getElementById("playGameButton");
-playGameButton.addEventListener("click", startNewGame);
+playGameButton.addEventListener("click", () => {
+    startNewGame();
+    enterFullScreen(document.body);
+});
 
 playGameButton.addEventListener("mouseover", () => {
     playGameButton.style = "width: 130px; height: 76px; font-size: 36px; background-color: rgb(215, 193, 70); border: 6px double rgb(246,246,246); font-weight: 550; color: rgb(207,31,38);";
@@ -72,6 +75,7 @@ backButton.addEventListener("click", () => {
     }
     document.getElementById("mainGamePage").style.display = "none";
     document.getElementById("startPage").style.removeProperty("display");
+    exitFullscreen();
 })
 
 backButton.addEventListener("mouseover", () => {
@@ -127,6 +131,7 @@ backToMainPageButton.addEventListener("click", () => {
     }
     document.getElementById("mainGamePage").style.display = "none";
     document.getElementById("startPage").style.removeProperty("display");
+    exitFullscreen();
 });
 
 // restart game button 
@@ -968,5 +973,32 @@ function selectItem(){
         } else {
             selectItem.currentTime = 0
         }
+    }
+}
+
+// full screen functions from (https://www.educative.io/answers/how-to-enable-full-screen-in-javascript)
+function enterFullScreen(element) {
+    if(element.requestFullscreen) {
+    element.requestFullscreen();
+
+    }else if (element.mozRequestFullScreen) {
+        // Firefox
+        element.mozRequestFullScreen();
+    }else if (element.webkitRequestFullscreen) {
+        // Safari
+        element.webkitRequestFullscreen();
+    }else if(element.msRequestFullscreen) {
+        // IE/Edge
+        element.msRequestFullscreen();      
+    }
+}
+
+function exitFullscreen() {
+    if(document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) {
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) {
+        document.webkitExitFullscreen();
     }
 }

@@ -5,6 +5,26 @@ html{
 
 body{
     margin: 0px;
+    background-color: rgb(207, 223, 255);
+}
+
+/* ensure that in full screen mode, large board sizes do not cut off */
+body:fullscreen {
+    overflow: scroll !important;
+}
+body:-ms-fullscreen {
+    overflow: scroll !important;
+}
+body:-webkit-full-screen {
+    overflow: scroll !important;
+}
+body:-moz-full-screen {
+    overflow: scroll !important;
+}
+
+/* change background colour from default black in full screen mode  */
+:fullscreen, ::backdrop {
+    background-color: rgb(207, 223, 255);
 }
 
 li{
